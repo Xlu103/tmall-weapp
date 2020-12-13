@@ -1,0 +1,7 @@
+<view class="container">
+	<view class="title">付款成功</view>
+	<view class="detail">预计后天送达</view>
+	<view class="btn"> <button bindtap="clickOrder">查看订单</button>
+		<button bindtap="clickIndex">继续逛</button></view>
+
+</view>

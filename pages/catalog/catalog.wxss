@@ -1,0 +1,65 @@
+page {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+/* 容器 */
+.cat-container {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  background-color: #fff;
+}
+
+
+/* 分类的目录 */
+.cat-cata {
+  width: 150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-right: 1rpx #ededed solid;
+  
+}
+
+/* 选中的目录样式 */
+.cat-cata-item-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  color: #ab2b2b;
+  height: 80rpx;
+  border-left: 6rpx solid #ab2b2b;
+}
+
+/* 默认的目录样式 */
+.cat-cata-item-default {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+/*----------------------------------------------*/
+
+/* 目录中详细的东西 */
+.cat-detail {
+  flex: 3;
+  background-color:#fff;
+  height: 100%;
+}
+.cat-detail swiper{
+  height: 100%;
+}
+
+.cat-detail swiper swiper-item{
+  height: 100%;
+}
+.item{
+  width: 100%;
+  height: 300rpx;
+}

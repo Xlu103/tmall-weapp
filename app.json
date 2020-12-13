@@ -1,0 +1,65 @@
+{
+  "pages": [
+
+    "pages/address/index/index",
+    "pages/user/user",
+    "pages/order/success",
+    "pages/order/order",
+    "pages/cart/cart",
+    "pages/index/index",
+    "pages/catalog/home/home",
+    "pages/produce/produce",
+    "pages/catalog/catalog",
+    "pages/catalog/recom/recom",
+    "pages/catalog/hot/hot",
+    "pages/catalog/drinks/drinks",
+    "pages/catalog/bag/bag",
+    "pages/catalog/digital/digital",
+    "pages/search/search",
+    "pages/login/login" ,
+    "pages/default/default" 
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#1d1d1d",
+    "navigationBarTitleText": "假天猫",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f4f4f4"
+
+  },
+  "tabBar": {
+    "color": "#9a9a9a",
+    "selectedColor": "#666",
+    "backgroundColor": "#fafafa",
+    "borderStyle": "white",
+
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icons/index.png",
+        "selectedIconPath": "icons/indexSelected.png"
+      },
+      {
+        "pagePath": "pages/catalog/catalog",
+        "text": "分类",
+        "iconPath": "icons/all.png",
+        "selectedIconPath": "icons/allSelected.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "icons/cart.png",
+        "selectedIconPath": "icons/cartSelected.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "icons/me.png",
+        "selectedIconPath": "icons/meSelected.png"
+      }
+
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

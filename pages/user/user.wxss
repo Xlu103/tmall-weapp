@@ -1,0 +1,154 @@
+page {
+  width: 100%;
+  background-color: #ededed;
+}
+
+.container {
+  width: 100%;
+}
+
+
+/* 用户块的顶部 */
+.user-top {
+  height: 300rpx;
+  background-color: #333333;
+  display: flex;
+  align-items: center;
+}
+
+.user-img {
+  border-radius: 75rpx;
+  width: 150rpx;
+  height: 150rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  width: 350rpx;
+  height: 100rpx;
+}
+
+.user-info>view {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  color: #fff;
+  font-size: 32rpx;
+  margin-bottom: 10rpx;
+}
+
+.user-type {
+  font-size: 24rpx;
+  color: #666;
+}
+
+
+/* 我的订单那一块 */
+.user-order {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  display: flex;
+  height: 230rpx;
+  background-color: #fff;
+}
+
+.user-order-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+
+}
+
+.user-order-text {
+  margin-left: 30rpx;
+}
+
+.user-order-find-text {
+  margin-right: 30rpx;
+  font-size: 20rpx;
+  color: #666;
+}
+
+.user-order-bottom {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #fff;
+}
+
+.user-order-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-order-item-img {
+  /* margin: 0 40rpx; */
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.user-order-item-title {
+  margin-top: 10rpx;
+  color: #666;
+  font-size: 20rpx;
+}
+
+
+
+/* 我的资产那一块 */
+.user-asset-item-count {
+  margin: 0 30rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+
+/* 我的服务那一块 */
+.user-server {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  height: 430rpx;
+  background-color: #fff;
+}
+
+.user-server-center {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.user-server-bottom {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: 1;
+}
+
+
+/* 切换账号按钮 */
+.user-logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100rpx;
+
+  background-color: #fcfcfc;
+  margin-bottom: 20rpx;
+  color: #666;
+}

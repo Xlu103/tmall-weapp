@@ -1,0 +1,106 @@
+@import"../index/index.wxss";
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-input {
+  width: 100%;
+}
+
+/* 输入框 */
+.search-input-in-text {
+  width: 95%;
+  border-radius: 40rpx;
+  border: 1rpx solid #ededed;
+  margin-left: auto;
+  height: 70rpx;
+  margin-right: auto;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  font-size: 38rpx;
+  background-color: #ededed;
+  font-size: 28rpx;
+  color: #666666;
+  padding-left: 15rpx;
+}
+
+
+/* 搜索的结果 */
+.search-result {
+  margin-top: 100rpx;
+  width: 100%;
+
+}
+
+/* 结果中都每一项 */
+.search-result-item {
+  background-color: #fff;
+  border-bottom: #ededed solid 1rpx;
+  width: 100%;
+  height: 250rpx;
+  color: #666666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+/* 照片的右边 */
+.serarch-result-item-right {
+
+  width: 500rpx;
+
+}
+
+/* 标题 */
+.search-result-item-title {
+  padding-left: 20rpx;
+  font-size: 35rpx;
+  color: #666666;
+}
+
+/* 详细 */
+.search-result-item-detail {
+  padding-left: 20rpx;
+  padding-top: 10rpx;
+  font-size: 25rpx;
+  color: #888888;
+}
+
+/* 图片 */
+.search-result-item-img {
+  width: 220rpx;
+  height: 220rpx;
+}
+
+/* 销量 */
+.search-result-item-sales {
+  padding-left: 20rpx;
+  padding-top: 10rpx;
+  color: #888888;
+}
+
+/* 价格 */
+.search-result-item-price {
+  padding-left: 20rpx;
+  padding-top: 10rpx;
+
+  font-weight: bold;
+  font-size: 35rpx;
+  color: red;
+
+}
+/* 搜索界面最下面的文字 */
+.search-end{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50rpx;
+  margin-top: 50rpx;
+  background-color: #ededed;
+  color: #666666;
+}

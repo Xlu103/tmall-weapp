@@ -1,0 +1,38 @@
+	<view class="container">
+
+		<!-- 首页输入框 -->
+		<view class="search-input">
+			<input class=" search-input-in-text" type="text" focus="true" confirm-type="search" placeholder="搜索你喜欢的商品" bindconfirm="searchProduce"></input>
+		</view>
+		<!-- 历史记录 -->
+		<view class="search-history" wx:if="{{}}"></view>
+		<!-- 搜索结果 -->
+		<view class="search-result">
+			<!-- 搜索结果中的每一项 -->
+			<view wx:for="{{searchResult}}" class="search-result-item" data-id="{{item.id}}">
+				<!-- 商品图片 -->
+				<image src="{{item.img}}" mode="widthFix" class="search-result-item-img"></image>
+				<!-- 图片的右边 -->
+				<view class="serarch-result-item-right">
+					<!-- 标题 -->
+					<view class="search-result-item-title">
+						{{item.title}}
+					</view>
+					<!-- 详细秒速 -->
+					<view class="search-result-item-detail">
+						{{item.detail}}
+					</view>
+					<!-- 价格 -->
+					<view class="search-result-item-price">
+						￥ {{item.price}}</view>
+					<!-- 销量和库存 -->
+					<view class="search-result-item-sales">
+						月销{{item.sales}}笔
+					</view>
+				</view>
+			</view>
+			<view wx:if="{{searchEnd}}" class="search-end">———— 到底了 ————</view>
+
+			<view wx:if="{{!searchNotHava}}" class="search-end">————没找到宝贝，换个关键词试试 ————</view>
+		</view>
+	</view>

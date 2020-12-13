@@ -1,0 +1,73 @@
+	<view class="tmall-index">
+
+		<!-- 首页输入框 -->
+		<view class="search-input">
+			<navigator class="search-input-in" url="/pages/search/search">搜索喜欢的商品</navigator>
+		</view>
+
+
+		<!-- 首页轮播图 -->
+		<swiper circular="true" indicator-dots="true" autoplay="true" interval="2000" class="index-swiper">
+			<swiper-item wx:for="{{swiperList}}" wx:key="*this" style="width:100%">
+				<image mode="widthFix" src="{{item.src}}" class="idnex-swiper-img" />
+			</swiper-item>
+		</swiper>
+
+		<!-- 图标块 首页第二项  天猫国际那一栏 -->
+		<view class="icon-chunk">
+			<view wx:for="{{iconList}}" wx:key="*this">
+				<!-- 跳转页面 -->
+				<navigator url="{{item.url}}">
+					<image src="{{item.imgSrc}}" class="icon-item-img" mode="widthFix"></image>
+					<view class="icon-item-text">{{item.title}}</view>
+				</navigator>
+			</view>
+		</view>
+
+		<!-- 推荐标题 -->
+		<view class="index-re-title">
+		<view>精选推荐</view>
+		<view>></view> </view>
+
+		<!-- 首页推荐的商品的容器 -->
+		<view class="index-produce-container">
+			<!-- 左边的商品 -->
+			<view class="produce-container-left">
+				<!-- 商品中的每一项 -->
+				<view wx:for="{{produceArray.left}}" class="index-produce-item" wx:key="*this">
+					<navigator url="../produce/produce?id={{item.id}}">
+						<!-- 商品图片 -->
+						<view class="produce-item-img">
+							<image src="{{item.img}}" mode="widthFix"></image>
+						</view>
+						<!-- 商品标题 -->
+						<view class="produce-item-title">{{item.title}}</view>
+						<!-- 商品简介 -->
+						<view class="produce-item-brief">{{item.detail}}}</view>
+						<!-- 商品价格 -->
+						<view class="produce-item-price">￥{{item.price}} <text class="produce-item-sales">{{item.sales}}人已经购买</text></view>
+					</navigator>
+				</view>
+			</view>
+			<!-- 右边的商品 -->
+			<view class="produce-container-right">
+				<view wx:for="{{produceArray.right}}" class="index-produce-item" wx:key="*this">
+					<navigator url="../produce/produce?id={{item.id}}">
+					<!-- 商品图片 -->
+						<view class="produce-item-img">
+							<image src="{{item.img}}" mode="widthFix"></image>
+						</view>
+						<!-- 商品标题 -->
+						<view class="produce-item-title">{{item.title}}</view>
+						<!-- 商品简介 -->
+						<view class="produce-item-brief">{{item.detail}}}</view>
+						<!-- 商品价格 -->
+						<view class="produce-item-price">￥{{item.price}} 
+						<text class="produce-item-sales">{{item.sales}}人已经购买</text>
+						</view>
+					</navigator>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="bottom-text">—— 更多内容,敬请期待 ——</view>

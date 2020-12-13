@@ -1,0 +1,175 @@
+page {
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 250rpx;
+  margin-top: 50rpx;
+  background-color: #fff;
+}
+
+
+.cart-item image {
+  width: 250rpx;
+}
+
+.cart-item checkbox {
+  margin-left: 10px;
+}
+
+/* 右边的详细填充满这里 */
+.cart-item-detail {
+
+  width: 450rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart-item-detail-num {
+  width: 300rpx;
+  height: 100rpx;
+}
+
+.cart-item-detail-title {
+  height: 100rpx;
+  font-size: 15px;
+  margin-top: 20rpx;
+  margin-left: 10rpx;
+}
+
+.cart-item-detail-price {
+  font-size: 18px;
+  margin-left: 10rpx;
+  margin-right: 30rpx;
+  width: 300rpx;
+}
+
+.cart-item-detail-num {
+  width: 220rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-bottom: 50rpx;
+}
+
+.cart-item-detail-num input {
+  flex: 1;
+  text-align: center;
+}
+
+.cart-item-detail-num button {
+  flex: 1;
+  padding: 0;
+}
+
+
+.cart-item-detail-bottom {
+  display: flex;
+}
+
+.cart-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+}
+
+.cart-bottom {
+  border-top: 1rpx rgb(212, 212, 212) solid;
+}
+
+.cart-bottom-right {
+  display: flex;
+  width: 450rpx;
+  text-align: center;
+}
+
+.cart-bottom checkbox {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+
+}
+
+.cart-bottom-right view {
+  display: flex;
+  flex: 1;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: #b4272d;
+  font-size: 14px;
+}
+
+.cart-bottom-right button {
+  display: flex;
+  flex: 1;
+  height: 100rpx;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: #b4272d;
+  font-size: 14px;
+  color: #fff;
+  border-radius: 0;
+}
+
+
+.cart-item-container {
+  margin-bottom: 150rpx;
+}
+
+/* 底部的到底文字 */
+.cart-item-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #515151;
+  margin-top: 50rpx;
+}
+
+.cart-record-none {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+}
+
+.cart-record-none view {
+  font-size: 50rpx;
+  font-weight: bold;
+  margin-top: 50rpx;
+  color: #515151;
+}
+
+.cart-record-none image {
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.cart-record-have {
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,36 @@
+<view class="cat-container">
+	<!-- 分类目录 -->
+	<view class="cat-cata">
+		<!-- 循环输出分类目录 -->
+		<view wx:for="{{cataDataArray}}" wx:key="*this" class="{{currentCataIndex==item.id?'.cat-cata-item-select':'.cat-cata-item-default'}}" data-id="{{item.id}}" bindtap="clickCata">{{item.title}}</view>
+	</view>
+	<!-- 分类中的详细页 -->
+
+	<view class="cat-detail">
+		<swiper  current="{{currentCataIndex}}" vertical="true">
+			<swiper-item>
+				<include src="../catalog/recom/recom.wxml" />
+			</swiper-item>
+
+			<swiper-item>
+				<include src="../catalog/hot/hot.wxml" />
+			</swiper-item>
+
+			<swiper-item>
+				<include src="../catalog/home/home.wxml" />
+			</swiper-item>
+
+			<swiper-item>
+				<include src="../catalog/drinks/drinks.wxml" />
+			</swiper-item>
+
+			<swiper-item>
+				<include src="../catalog/bag/bag.wxml" />
+			</swiper-item>
+
+			<swiper-item>
+				<include src="../catalog/digital/digital.wxml" />
+			</swiper-item>
+		</swiper>
+	</view>
+</view>

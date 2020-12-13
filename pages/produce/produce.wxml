@@ -1,0 +1,35 @@
+<!-- 容器 -->
+<view class="container">
+
+	<!--  商品轮播图 -->
+	<swiper indicator-dots="true">
+		<swiper-item>
+			<image class="produce-swiper-img" src="{{produceData.img}}" mode="widthFix"></image>
+		</swiper-item>
+		<swiper-item>
+			<image class="produce-swiper-img" src="{{produceData.img}}" mode="widthFix"></image>
+		</swiper-item>
+		<swiper-item>
+			<image class="produce-swiper-img" src="{{produceData.img}}" mode="widthFix"></image>
+		</swiper-item>
+	</swiper>
+
+	<!-- 商品详细 -->
+	<view class="produce-detail">
+
+		<view class="produce-detail-title">{{produceData.title}}</view>
+		<view class="produce-detail-detail">{{produceData.detail}}</view>
+		<view class="produce-detail-price">￥{{produceData.price}}
+			<view class="produce-detail-price-before">￥9999.00</view>
+		</view>
+	</view>
+
+	<!-- 购物车底部的 -->
+	<view class="proudce-bottom">
+		<view class="produce-bottom-comm">1️⃣</view>
+		<view class="produce-bottom-comm">2️⃣</view>
+		<view class="produce-bottom-comm">3️⃣</view>
+		<view class="produce-bottom-buy" data-id="{{produceData.id}}">立即购买</view>
+		<view class="produce-bottom-add" data-id="{{produceData.id}}"  bindtap="addProduceToCart">加入购物车</view>
+	</view>
+</view>
