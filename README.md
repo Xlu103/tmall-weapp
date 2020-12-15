@@ -1,4 +1,4 @@
-# Tmall
+# tmall
 
 
 
@@ -16,7 +16,7 @@
 
 ### 后台使用SSM框架实现
 
-- 链接
+- 链接：https://github.com/Xlu103/tmall_mini_program_back_end
 
 ### 引入第三方组件库或依赖
 
