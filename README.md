@@ -12,7 +12,7 @@
 
 ### 小图预览
 
-![image-20201215092622974](C:%5CUsers%5Cxlu%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201215092622974.png)
+![image-20201215092622974](https://i.loli.net/2020/12/15/JRFmlUD9gtP1zjC.png)
 
 ### 后台使用SSM框架实现
 
