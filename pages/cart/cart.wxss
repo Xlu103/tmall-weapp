@@ -1,8 +1,7 @@
 page {
   width: 100%;
   height: 100%;
-  background-color: #fafafa;
-
+  background-color: #fefefe;
 }
 
 .container {
@@ -172,4 +171,29 @@ page {
 .cart-record-have {
   height: 100%;
   width: 100%;
+}
+
+.cart-bottom {
+  font-size: 25rpx;
+}
+
+
+.not-login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.not-login view{
+  font-size: 50rpx;
+  color: #b4272d;
+  margin: 30rpx;
+}
+
+.not-login button{
+  margin-top: 10rpx;
+  background-color: #fafafa;
 }

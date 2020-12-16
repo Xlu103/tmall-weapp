@@ -1,11 +1,15 @@
-var app = getApp();
+const app = getApp();
+const serverUrl=app.globalData.url;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    produceData: {}
+    produceData: {},
+    produceId: 0,
+    // 是否是第一次加载
+    first: true
   },
   /**
    * 添加商品到购物车
@@ -21,7 +25,7 @@ Page({
         title: '请稍等'
       })
       wx.request({
-        url: 'http://172.16.80.145:8080/tmall/cart/add',
+        url: 'http://'+serverUrl+'/tmall/cart/add',
         data: {
           "userId": userId,
           "produceId": produceId,
@@ -31,7 +35,7 @@ Page({
           wx.hideLoading({})
           wx.showToast({
             title: '添加成功',
-            debugger:1000
+            debugger: 1000
           })
           console.log(res);
 
@@ -53,27 +57,64 @@ Page({
     }
   },
 
+ 
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("请求到了produce文件中的onload");
+    
     wx.showLoading({
       title: '请稍等...',
     })
     var that = this;
-
-    // if (options.page == "left") {
+    this.setData({
+      produceId: options.id
+    })
+    wx.request({
+      url: 'http://'+serverUrl+'/tmall/produce/searchId',
+      data: {
+        id: options.id
+      },
+      success(res) {
+        that.setData({
+          produceData: res.data,
+          first:false
+        });
+        wx.hideLoading({})
+      }
+    })
+  },
+  
+  onShow: function () {
+      console.log("请求来到了produce中的onShow");
+      
+    if (!this.data.first) {
+      wx.showLoading({
+        title: '请稍等...',
+      })
+      var that = this;
       wx.request({
-        url: 'http://172.16.80.145:8080/tmall/produce/searchId',
+        url: 'http://'+serverUrl+'/tmall/produce/searchId',
         data: {
-          id: options.id
-        }, success(res) {
+          id: that.data.produceId
+        },
+        success(res) {
           that.setData({
             produceData: res.data
           });
           wx.hideLoading({})
         }
       })
-    
+    }
+  },
+  clickCart: function () {
+    wx.switchTab({
+      url: '/pages/cart/cart',
+      success: (res) => {},
+      fail: (res) => {},
+      complete: (res) => {},
+    })
   }
 })

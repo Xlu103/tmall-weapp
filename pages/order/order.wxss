@@ -120,3 +120,25 @@ swiper {
   color: #515151;
   margin-top: 50rpx;
 }
+
+.order-record-none image {
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.order-record-none {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+}
+
+.order-record-none view {
+  font-size: 50rpx;
+  font-weight: bold;
+  margin-top: 50rpx;
+  color: #515151;
+}

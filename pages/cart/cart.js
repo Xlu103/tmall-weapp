@@ -1,4 +1,6 @@
-var app = getApp();
+const app = getApp();
+ 
+const serverUrl=app.globalData.url;
 // pages/cart/cart.js
 Page({
 
@@ -19,7 +21,8 @@ Page({
     // 是否全选标志
     isSelectAll: false,
     // 是否有选择
-    isSelectHave: false
+    isSelectHave: false,
+    userId:-1
   },
 
 
@@ -35,13 +38,22 @@ Page({
     })
 
     console.log("发起结账功能！！");
-    console.log(this.data.selectProduceIds);
+
+
     let totalPrice = this.data.totalPrice;
     let items = this.data.cartItems;
     let orderId = '';
     let userId = app.globalData.userId;
+ 
+    // 使用action标志是用于结账
+    wx.navigateTo({
+      url: '../cart/settle/settle?action=settle'
+    })
+
+    //  本来是在这里生成订单，但是多一个付款界面，就将这个移到结账页面了
+    /*
     wx.request({
-      url: 'http://172.16.80.145:8080/tmall/order/addOrder',
+      url: 'http://'+serverUrl+'/tmall/order/addOrder',
       data: {
         userId: userId,
         price: totalPrice
@@ -57,7 +69,7 @@ Page({
             let title = items[i].produce.title;
             let imgPath = items[i].produce.img;
             wx.request({
-              url: 'http://172.16.80.145:8080/tmall/order/addOrderItem',
+              url: 'http://'+serverUrl+'/tmall/order/addOrderItem',
               data: {
                 orderId: orderId,
                 price: price,
@@ -76,6 +88,8 @@ Page({
     wx.navigateTo({
       url: '../order/success',
     })
+
+    */
   },
 
 
@@ -100,7 +114,7 @@ Page({
     })
 
     wx.request({
-      url: 'http://172.16.80.145:8080/tmall/cart/update',
+      url: 'http://'+serverUrl+'/tmall/cart/update',
       data: {
         id: id,
         count: count
@@ -302,15 +316,21 @@ Page({
    * 在这里判断用户是否已经登录，如果还没有登录就会提示，然跳转登录页面，如果已经登录，那么就在后端获取购物车系统，然后封装一下！！！
    */
   onShow: function (options) {
+
+  
     let userId = app.globalData.userId;
+    this.setData({
+      userId:userId
+    })
 
     let that = this;
+ 
     wx.showLoading({
       title: '请稍等',
     })
 
     wx.request({
-      url: 'http://172.16.80.145:8080/tmall/cart/all',
+      url: 'http://'+serverUrl+'/tmall/cart/all',
       data: {
         userId: userId
       },
@@ -337,6 +357,11 @@ Page({
           totalCount: totalCount
         })
       }
+    })
+  },
+  onLoad:function(e){
+    wx.setNavigationBarTitle({
+      title: '购物车'
     })
   }
 

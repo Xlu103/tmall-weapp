@@ -1,3 +1,6 @@
+const app = getApp();
+ 
+const serverUrl=app.globalData.url;
 // pages/order/success.js
 Page({
 
@@ -8,9 +11,12 @@ Page({
 
   },
   clickOrder:function(){
-    wx.navigateTo({
+
+    wx.switchTab({
       url: '../order/order?index=0',
+
     })
+ 
   },
   clickIndex:function(){
      wx.switchTab({

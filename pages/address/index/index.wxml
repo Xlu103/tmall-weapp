@@ -37,5 +37,5 @@
   <view class="add-btn" hover-class="navigator-hover" bindtap="addAddress">
     <van-icon name="plus" class="icon" />新建地址</view>
   <view class="import-btn" hover-class="navigator-hover" bindtap="importAddress">
-    <image src="/assets/wechat.png" class="image"></image>一键导入微信地址</view>
+    一键导入微信地址</view>
 </view>

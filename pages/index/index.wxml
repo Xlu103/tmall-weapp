@@ -17,10 +17,10 @@
 		<view class="icon-chunk">
 			<view wx:for="{{iconList}}" wx:key="*this">
 				<!-- 跳转页面 -->
-				<navigator url="{{item.url}}">
+				<view url="{{item.url}}" bindtap="clickChunk">
 					<image src="{{item.imgSrc}}" class="icon-item-img" mode="widthFix"></image>
 					<view class="icon-item-text">{{item.title}}</view>
-				</navigator>
+				</view>
 			</view>
 		</view>
 

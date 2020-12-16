@@ -16,11 +16,10 @@
 </view>
 
 <!-- 底部保存按钮 -->
-<button class="save" hover-class="active" bindtap="saveAddress">保存</button>
-
+<view class="save" hover-class="active" bindtap="saveAddress">保存</view>
 <!-- 地址选择 -->
 <van-popup show="{{ show }}" position="bottom">
-	<van-area area-list="{{ areaList }}" bind:cancel="cancelSelect" bind:confirm="selectArea" />
+  <van-area area-list="{{ areaList }}" bind:cancel="cancelSelect" bind:confirm="selectArea"/>
 </van-popup>
 
 <van-toast id="van-toast" />

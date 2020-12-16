@@ -9,7 +9,7 @@
 		<!-- 搜索结果 -->
 		<view class="search-result">
 			<!-- 搜索结果中的每一项 -->
-			<view wx:for="{{searchResult}}" class="search-result-item" data-id="{{item.id}}">
+			<view wx:for="{{searchResult}}" class="search-result-item" data-id="{{item.id}}" bindtap="clickItem">
 				<!-- 商品图片 -->
 				<image src="{{item.img}}" mode="widthFix" class="search-result-item-img"></image>
 				<!-- 图片的右边 -->

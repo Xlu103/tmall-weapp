@@ -2,12 +2,13 @@
 
 page {
   background: #fff;
+  width: 750rpx;
 }
 
 .save {
   position: fixed;
   bottom: 0;
-  width: 750rpx;
+  width: 100%;
   height: 100rpx;
   text-align: center;
   line-height: 100rpx;

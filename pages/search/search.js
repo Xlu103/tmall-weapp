@@ -1,3 +1,6 @@
+const app = getApp();
+ 
+const serverUrl=app.globalData.url;
 // pages/search/search.js
 Page({
 
@@ -27,7 +30,7 @@ Page({
       title: '请稍等...',
     })
     wx.request({
-      url: 'http://172.16.80.145:8080/tmall/produce/searchName',
+      url: 'http://'+serverUrl+'/tmall/produce/searchName',
       data: {
         name: this.data.searchText
       }, success: function (res) {
@@ -53,7 +56,17 @@ Page({
       }
     })
   },
+  /**
+   * 点击搜索结果,跳转到每一个订单的页面
+   */
+  clickItem: function (e) {
+    let id=e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/produce/produce?id='+id,
+    })
+ 
 
+  },
   /**
    * 生命周期函数--监听页面加载
    */

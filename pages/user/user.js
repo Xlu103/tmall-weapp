@@ -1,4 +1,6 @@
-var app = getApp();
+const app = getApp();
+ 
+const serverUrl=app.globalData.url;
 Page({
 
   /**
@@ -65,14 +67,14 @@ Page({
       wx.showToast({
         title: '请先登录',
         icon: "none",
-        duration:1000,
+        duration: 1000,
         complete: function (e) {
           wx.navigateTo({
             url: '../login/login',
           })
         }
       })
-      return ;
+      return;
     }
     wx.navigateTo({
       url: "../order/order?index=" + index
@@ -85,20 +87,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
@@ -107,8 +95,52 @@ Page({
       userImgSrc: app.globalData.userImgSrc,
       userType: "微信用户"
     })
+  },
+  /**  
+   * 点击我的服务，这里还没开发 
+   */
+  clickMyService: function (e) {
+    if (app.globalData.userId == -1) {
+      wx.showToast({
+        title: '未登录',
+        icon: "none",
+        complete: function () {
+          wx.navigateTo({
+            url: '/pages/login/login',
+          })
+        }
+      })
+      return;
+    }
+
+    let id = e.currentTarget.dataset.id;
+    if (id == 0) {
+      console.log("这是我的地址");
+      wx.navigateTo({
+        url: '/pages/address/index/index'
+      })
+    } else {
+      wx.showToast({
+        title: '功能为开发',
+        icon: "none"
+      })
+    }
 
   },
+  /**   
+   * 点击我的资产
+   */
+  clickMyProperty: function (e) {
+    wx.showToast({
+      title: '功能为开发',
+      icon: "none"
+    })
+  },
+  onLoad:function(e){
+    wx.setNavigationBarTitle({
+      title: '个人中心'
+    })
+  }
 
 
 

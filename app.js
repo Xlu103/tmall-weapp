@@ -23,6 +23,7 @@ App({
     userName: "Hi 游客",
     openid: "",
     isLogin:false,
-    userId:-1
+    userId:-1,
+    url:"172.16.80.144:8080"
   }
 });

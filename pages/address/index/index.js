@@ -1,4 +1,6 @@
 
+var app = getApp();
+const serverUrl=app.globalData.url;
 Page({
 
   /**
@@ -6,26 +8,7 @@ Page({
    */
   data: {
     chooseMode: false,
-    addressList: [
-      {
-        id: '1',
-        name: 'Exrick',
-        mobile: '17621230888',
-        address: '四川省成都市武侯区',
-        street: '益州大道888号香月湖7栋',
-        isDefault: true,
-        checked: false
-      },
-      {
-        id: '2',
-        name: 'XMall',
-        mobile: '17621230888',
-        address: '四川省成都市武侯区',
-        street: '益州大道888号香月湖66栋',
-        isDefault: false,
-        checked: false
-      }
-    ]
+    addressList: []
   },
 
   /**
@@ -35,11 +18,34 @@ Page({
     wx.setNavigationBarTitle({
       title: '地址管理',
     })
+    let that = this;
+    wx.request({
+      url: 'http://'+serverUrl+'/tmall/address/all',
+
+      data: {
+        userId: app.globalData.userId
+      }, success: function (res) {
+        let addressList = res.data.addressList;
+        for (let i = 0; i < addressList.length; i++) {
+          addressList[i].checked = false;
+          addressList[i].isDefault = addressList[i].default;
+        }
+        console.log(addressList);
+        that.setData({
+          addressList: addressList
+        })
+      }
+    })
+
+
+    // 如果是选择从结账那里过来，那么这里就是选择地址
+    // 在选择地址的时候遍历所有地址，通过他被点击了，那么就将他设置为选中
+    // 选中的话，在地址列表中在地址的左边显示出来
     if (options.chooseMode == "true") {
       this.setData({
         chooseMode: true
       })
-      let that = this;
+
       this.data.addressList.forEach(function (v, index) {
         if (options.addressId == v.id) {
           that.setData({
@@ -49,79 +55,62 @@ Page({
       })
     }
   },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 删除地址
    */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function (e) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
   deleteAddress: function (e) {
     let id = e.currentTarget.dataset.value.id;
     let data = [];
+
     this.data.addressList.forEach(function (v) {
       if (id != v.id) {
         data.push(v);
       }
+      if (id == v.id) {
+        if (v.isDefault) {
+          // 如果被删除的这个是默认的地址,就不对劲了
+          // 要将地址中的第一个设置为默认地址,如果没有地址的话
+          // 算了先不做
+        }
+      }
+
     })
     this.setData({
       addressList: data
     })
+
+
+    // 调用api删除地址记录
+    wx.request({
+      url: 'http://'+serverUrl+'/tmall/address/delete',
+      data: {
+        id: id
+      }
+    })
+
+
   },
+  /**   
+   * 编辑地址
+   */
   editAddress: function (e) {
     let data = e.currentTarget.dataset.value;
     wx.navigateTo({
       url: '/pages/address/edit/edit?edit=true&id=' + data.id + '&name=' + data.name + '&mobile=' + data.mobile + '&address=' + data.address + '&street=' + data.street + '&isDefault=' + data.isDefault
     })
   },
+  /**  
+   * 添加地址
+   */
   addAddress: function () {
     wx.navigateTo({
       url: '/pages/address/edit/edit'
     })
   },
+
+  /**   
+   * 导入地址,调用微信
+   */
   importAddress: function () {
     wx.chooseAddress({
       success(res) {

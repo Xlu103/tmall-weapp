@@ -27,7 +27,9 @@
 	<!-- 购物车底部的 -->
 	<view class="proudce-bottom">
 		<view class="produce-bottom-comm">1️⃣</view>
-		<view class="produce-bottom-comm">2️⃣</view>
+		<view class="produce-bottom-comm">
+		<image src="/icons/cartSelected.png" mode="widthFix" bindtap="clickCart" style="width:50rpx"></image>
+		</view>
 		<view class="produce-bottom-comm">3️⃣</view>
 		<view class="produce-bottom-buy" data-id="{{produceData.id}}">立即购买</view>
 		<view class="produce-bottom-add" data-id="{{produceData.id}}"  bindtap="addProduceToCart">加入购物车</view>

@@ -2,6 +2,6 @@
 	<image src="../../image/m.png" class="login-img"></image>
 	<view class="login-nav">
 		<view class="login-nav-wx login-nav-view" bindtap="bindGetUserInfo">微信登录</view>
-		<navigator class="login-nav-email login-nav-view">邮箱登录</navigator>
+		<view bindtap="clickEmailLogin"  class="login-nav-email login-nav-view">邮箱登录</view>
 	</view>
 </view>

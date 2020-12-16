@@ -37,7 +37,7 @@
 
 		<!-- 我的资产那一块的底部 -->
 		<view class="user-order-bottom user-asset-bottom ">
-			<view class=" user-order-item" wx:for="{{assetData}}" wx:key="*this" data-id="{{item.id}}">
+			<view class=" user-order-item" wx:for="{{assetData}}" wx:key="*this" data-id="{{item.id}}" bindtap="clickMyProperty">
 				<view class="user-asset-item-count">{{item.number}}</view>
 				<view class="user-order-item-title">{{item.title}}</view>
 			</view>
@@ -50,15 +50,15 @@
 			<view class="user-order-text user-server-text">我的服务</view>
 		</view>
 		<view class="user-server-center">
-			<view class="user-order-item" wx:for="{{orderData}}" wx:key="*this" data-id="{{item.id}}">
-				<image class="user-order-item-img" src="{{item.id==0?'../../image/address.png':item.imgSrc}}"></image>
-				<view class="user-order-item-title">{{item.id==0?'我的地址':item.title}}</view>
+			<view class="user-order-item" wx:for="{{orderData}}" wx:key="*this" data-id="{{item.id}}" bindtap="clickMyService">
+				<image class="user-order-item-img" src="{{item.id==0?'../../image/address.png':'../../icons/unknown.png'}}"></image>
+				<view class="user-order-item-title">{{item.id==0?'我的地址':'待开发'}}</view>
 			</view>
 		</view>
 		<view class="user-server-bottom">
-			<view class="user-order-item" wx:for="{{orderData}}" wx:key="*this" data-id="{{item.id}}">
-				<image class="user-order-item-img" src="{{item.imgSrc}}"></image>
-				<view class="user-order-item-title">{{item.title}}</view>
+			<view class="user-order-item" wx:for="{{5}}" wx:key="*this" data-id="{{item.id}}">
+				<image class="user-order-item-img" src="../../icons/unknown.png"></image>
+				<view class="user-order-item-title">{{'待开发'}}</view>
 			</view>
 		</view>
 	</view>

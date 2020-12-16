@@ -1,64 +1,68 @@
 <view class="container">
-	<view wx:if="{{cartItems.length>0}}" class="cart-record-have">
-		<view class="cart-item-container">
-			<!--购物车中的每一个项 -->
-			<view wx:for="{{cartItems}}" class="cart-item">
-				<!-- 单选框 -->
-				<checkbox checked="{{item.checked}}" data-name="{{item.arrayId}}" bindtap="clickChecked" data-checked="{{item.checked}}"></checkbox>
 
-				<!-- 商品图片 -->
-				<image src="{{item.produce.img}}" data-pid="{{item.produceId}}"  bindtap="clickCartItemImg" mode="widthFix"></image>
-				<!-- 结束-商品图片 -->
+	<view wx:if="{{userId!=-1}}" style="height:100%;width:100%">
+		<view wx:if="{{cartItems.length>0}}" class="cart-record-have">
+			<view class="cart-item-container">
+				<!--购物车中的每一个项 -->
+				<view wx:for="{{cartItems}}" class="cart-item">
+					<!-- 单选框 -->
+					<checkbox checked="{{item.checked}}" data-name="{{item.arrayId}}" bindtap="clickChecked" data-checked="{{item.checked}}"></checkbox>
 
-				<!-- 商品的信息，标题，价格 数量 -->
-				<view class="cart-item-detail">
+					<!-- 商品图片 -->
+					<image src="{{item.produce.img}}" data-pid="{{item.produceId}}" bindtap="clickCartItemImg" mode="widthFix"></image>
+					<!-- 结束-商品图片 -->
 
-					<!-- 商品的标题 -->
-					<view class="cart-item-detail-title">{{item.produce.title}}</view>
-					<view class="cart-item-detail-bottom">
+					<!-- 商品的信息，标题，价格 数量 -->
+					<view class="cart-item-detail">
 
-						<!-- 商品的价格 -->
-						<view class="cart-item-detail-price"><text style="color:#b4272d;">￥{{item.produce.price}}</text></view>
-						<!-- 个数，这里可以按钮，增加 -->
-						<view class="cart-item-detail-num">
-							<button bindtap="clickAddOrSub" data-type="sub" data-id="{{item.arrayId}}">-</button>
-							<input type="number" value="{{item.count}}" data-id="{{item.arrayId}}" bindinput="changeInputNum"></input>
-							<button bindtap="clickAddOrSub" data-type="add" data-id="{{item.arrayId}}">+</button>
+						<!-- 商品的标题 -->
+						<view class="cart-item-detail-title">{{item.produce.title}}</view>
+						<view class="cart-item-detail-bottom">
+
+							<!-- 商品的价格 -->
+							<view class="cart-item-detail-price"><text style="color:#b4272d;">￥{{item.produce.price}}</text></view>
+							<!-- 个数，这里可以按钮，增加 -->
+							<view class="cart-item-detail-num">
+								<button bindtap="clickAddOrSub" data-type="sub" data-id="{{item.arrayId}}">-</button>
+								<input type="number" value="{{item.count}}" data-id="{{item.arrayId}}" bindinput="changeInputNum"></input>
+								<button bindtap="clickAddOrSub" data-type="add" data-id="{{item.arrayId}}">+</button>
+							</view>
 						</view>
+						<!-- 结束-商品的信息，标题，价格 数量 -->
+
 					</view>
-					<!-- 结束-商品的信息，标题，价格 数量 -->
-
+					<!-- 结束-购物车每一项 -->
 				</view>
-				<!-- 结束-购物车每一项 -->
+				<view class="cart-item-bottom"> -- 到底了-- </view>
 			</view>
-			<view class="cart-item-bottom"> -- 到底了-- </view>
+
+			<view>
+				<!-- 固定的底部 -->
+				<view class="cart-bottom">
+					<checkbox bindtap="clickChecked" data-name="checked-all" data-checked="{{isSelectAll}}">
+						<text  wx:if="{{!isSelectHave}}">全选</text>
+						<text wx:if="{{isSelectHave}}">已选（{{totalCount}}）件</text>
+					</checkbox>
+					<!-- 右边 -->
+					<view class="cart-bottom-right">
+						<!-- 总价格 -->
+						<view>合计￥{{totalPrice}}</view>
+						<button bindtap="settleAccount">下单</button>
+
+					</view>
+				</view>
+				<!-- 结束-固定的底部 -->
+			</view>
 		</view>
 
-		<view>
-			<!-- 固定的底部 -->
-			<view class="cart-bottom">
-				<checkbox bindtap="clickChecked" data-name="checked-all" data-checked="{{isSelectAll}}">
-					<text wx:if="{{!isSelectHave}}">全选</text>
-					<text wx:if="{{isSelectHave}}">已选（{{totalCount}}）件</text>
-
-
-
-				</checkbox>
-				<!-- 右边 -->
-				<view class="cart-bottom-right">
-					<!-- 总价格 -->
-					<view>合计￥{{totalPrice}}</view>
-					<button bindtap="settleAccount">下单</button>
-
-				</view>
-			</view>
-			<!-- 结束-固定的底部 -->
+		<view wx:if="{{cartItems.length==0}}" class="cart-record-none">
+			<image src="../../image/没有数据.png" mode="widthFix"></image>
+			<view>购物车空空的，去选购东西吧! </view>
 		</view>
 	</view>
 
-	<view wx:if="{{cartItems.length==0}}" class="cart-record-none">
-		<image src="../../image/没有数据.png" mode="widthFix"></image>
-		<view>购物车空空的，去选购东西吧! </view>
+	<view wx:if="{{userId==-1}}" class="cart-record-none">
+		<image src="/image/not-login.png" mode="widthFix"></image>
+		<view>还未登录，请先登录! </view>
 	</view>
-
 </view>
